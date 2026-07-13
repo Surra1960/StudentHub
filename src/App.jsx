@@ -2,7 +2,7 @@ import React from 'react';
 import  Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AnnouncementsSection from './components/AnnouncementsSection';
-//import Footer from './components/Footer';  /*<Footer/>*/
+import Footer from './components/Footer'; 
 
 function App(){
   return(
@@ -10,6 +10,7 @@ function App(){
       <Navbar/>
       <Hero/>
       <AnnouncementsSection/> 
+       <Footer/>
     </div>
   )
 }
