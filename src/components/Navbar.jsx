@@ -1,20 +1,30 @@
 
-// We will create website name/logo
-// and then navigation menu , in this component
-function Navbar(){
+import { useContext} from "react";
+import StudentContext from "../context/StudentContext";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
+function Navbar(){
+    const student=useContext(StudentContext);
     return (
-    <>
+    <div className="navbar">
+        <div className="navbar_logo">
         <h1 className='navbar_title'>StudentHUb</h1>
+        </div>
+       
         <nav className='navbar_links'>
-            <a href='#home'>Home </a>
-            <a href='#announcements'>Announcements</a>
-            <a href='#events'>Events</a>
-            <a href='#resources'>Resources</a>
-            <a href='#clubs'>Clubs</a>
+             <NavLink to="/">Home</NavLink>
+             <NavLink to="/announcements">Announcements</NavLink>
+             <NavLink to="/events">Events</NavLink>
+             <NavLink to="/resources" >Resources</NavLink>
+             <NavLink to="/clubs" >Clubs</NavLink>
         </nav>
-        <button className='Navlogin_button'>Login</button>
-    </>
+        <div className="navbar_actions">
+
+         <button className='Navlogin_button'>Login</button>
+        </div>
+      
+    </div>
     )
 }
 export default Navbar;

@@ -1,0 +1,43 @@
+.hero{
+    min-height:80vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px;
+
+    background:#f8fafc;
+}
+.hero_content{
+    max-width:700px;
+}
+.hero_content h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#1f2937;
+}
+.hero_content p{
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:35px;
+}
+.hero_buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+.hero_buttons button{
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+}
