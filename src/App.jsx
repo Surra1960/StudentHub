@@ -11,6 +11,9 @@ import Home from './pages/Home';
 import Resources from './pages/Resources';
 import Clubs from './pages/Clubs';
 
+import AnnouncementDetails from './pages/AnnouncementDetails';
+import NotFound from './pages/NotFound';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App(){
@@ -25,6 +28,8 @@ function App(){
         <Route path='/events' element={<Events/>} />
         <Route path="/resources" element={<Resources/>} />
         <Route path="/clubs" element={<Clubs/>} />
+        <Route path="/announcements/:id" element={<AnnouncementDetails/>}/>
+        <Route path="*" element={<NotFound/>} />
       </Routes>
        <Footer/>
     </div>

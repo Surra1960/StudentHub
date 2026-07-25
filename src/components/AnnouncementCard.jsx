@@ -1,24 +1,26 @@
 
-import "./AnnouncementCard.css"
-function AnnouncementCard(props){
+import "./AnnouncementCard.css";
+import {Link} from "react-router-dom"
+
+function AnnouncementCard({id,title,category, date, description}){
 
     return (
         <div className="announcement_card">
 
     <div className="card_header">
-        <span className="card_category">{props.category}</span>
-        <span className="card_date">{props.date}</span>
+        <span className="card_category">{category}</span>
+        <span className="card_date">{date}</span>
     </div>
 
-    <h3 className="card_title">{props.title}</h3>
+    <h3 className="card_title">{title}</h3>
 
     <p className="card_description">
-        {props.description}
+        {description}
     </p>
 
-    <button className="read_more_btn">
+    <Link to={`/announcements/${id}`} className="read_more_btn">
         Read More →
-    </button>
+    </Link>
 
 </div>
     )

@@ -102,7 +102,11 @@
     font-weight:600;
 
 }
-
+.error_message{
+    color: red;
+    font-weight: 700;
+    font-size: 2rem;
+}
 .cards_container{
 
     display:grid;
