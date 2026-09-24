@@ -1,11 +1,50 @@
 import { Link, useParams } from "react-router-dom";
-import announcementData from "../data/announcements";
+import { useState,useEffect } from "react";
 
 function AnnouncementDetails() {
     const { id } = useParams();
-    const announcement = announcementData.find((item) => String(item.id) === id);
+     const [error, setError] = useState("");
+    const [announcement, setAnnouncement]=useState(null);
+    const [loading, setLoading] = useState(true);
 
-    if (!announcement) {
+    useEffect(
+        ()=>{
+            fetch(`http://localhost:4000/announcements/${id}`)
+                .then(response=>{
+                    if(!response.ok){
+                        throw new Error('Failed to Fetch the Announcement');
+                    }
+                    return response.json();
+                   
+                })
+                .then(data=>{
+                    setAnnouncement(data.announcement)
+                })
+                .catch((err) =>{
+                     console.error(err);
+                    setError('Unbale to load the announcement')
+                })
+                .finally(
+                 () =>{  setLoading(false)}
+                );
+        },[id])
+
+    if(loading){
+        return (
+            <div className="page_content">
+                <h1>Loading Announcement</h1>
+            </div>
+        );
+    }
+    if(error){
+        return (
+            <div className="page_content">
+                <h1>{error}</h1>
+                <Link to="/announcements">Back to Announcements</Link>
+            </div>
+        );
+    }
+        if (!announcement) {
         return (
             <div className="page_content">
                 <h1>Announcement not found</h1>
