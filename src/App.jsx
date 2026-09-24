@@ -1,8 +1,6 @@
 import React from 'react';
-import  Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AnnouncementsSection from './components/AnnouncementsSection';
-import Footer from './components/Footer'; 
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import StudentContext from './context/StudentContext';
 
 import Announcements from './pages/Announcements';
@@ -16,25 +14,37 @@ import NotFound from './pages/NotFound';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App(){
-  return(
+function App() {
+  return (
     <BrowserRouter>
-    <StudentContext.Provider value={{studentName:"Surraa",university:"Addis Ababa University", year:2026}}>
-    <div className='container'>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/announcements" element={<Announcements/>}/>
-        <Route path='/events' element={<Events/>} />
-        <Route path="/resources" element={<Resources/>} />
-        <Route path="/clubs" element={<Clubs/>} />
-        <Route path="/announcements/:id" element={<AnnouncementDetails/>}/>
-        <Route path="*" element={<NotFound/>} />
-      </Routes>
-       <Footer/>
-    </div>
-    </StudentContext.Provider>
+      <StudentContext.Provider
+        value={{
+          studentName: 'Surraa',
+          university: 'Addis Ababa University',
+          year: 2026,
+        }}
+      >
+        <div className="container">
+          <Navbar />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/announcements" element={<Announcements />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/clubs" element={<Clubs />} />
+            <Route
+              path="/announcements/:id"
+              element={<AnnouncementDetails />}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+          <Footer />
+        </div>
+      </StudentContext.Provider>
     </BrowserRouter>
-  )
+  );
 }
+
 export default App;
