@@ -1,0 +1,126 @@
+/* =========================================================
+   Announcement Details
+   ========================================================= */
+
+.announcement_details {
+    width: min(820px, 100%);
+    margin: 0 auto;
+    padding: 42px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+/* Title */
+
+.announcement_details h1 {
+    margin: 0 0 20px;
+    color: #0f172a;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+/* Category + date */
+
+.announcement_meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.announcement_meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.announcement_meta span:first-child {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* Main description */
+
+.announcement_details > p {
+    margin: 0 0 22px;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Additional announcement details */
+
+.announcement_details > p:nth-of-type(2) {
+    padding: 20px;
+    margin-top: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Back link */
+
+.announcement_details a {
+    display: inline-flex;
+    margin-top: 18px;
+    color: #2563eb;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.announcement_details a:hover {
+    color: #1d4ed8;
+    transform: translateX(-3px);
+}
+
+.announcement_details a:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.2);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .announcement_details {
+        padding: 30px;
+        border-radius: 16px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .announcement_details {
+        padding: 22px;
+    }
+
+    .announcement_details h1 {
+        font-size: 1.8rem;
+    }
+
+    .announcement_details > p {
+        font-size: 0.94rem;
+    }
+
+    .announcement_details > p:nth-of-type(2) {
+        padding: 16px;
+    }
+}

@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import "../styles/AnnouncementDetails.css";
 import { useState,useEffect } from "react";
 
 function AnnouncementDetails() {
@@ -22,7 +23,7 @@ function AnnouncementDetails() {
                 })
                 .catch((err) =>{
                      console.error(err);
-                    setError('Unbale to load the announcement')
+                    setError('Unable to load the announcement')
                 })
                 .finally(
                  () =>{  setLoading(false)}

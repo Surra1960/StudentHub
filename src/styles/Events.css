@@ -1,0 +1,125 @@
+/* =========================================================
+   Events Page
+   ========================================================= */
+
+.page_content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 56px 0 80px;
+}
+
+/* Page heading */
+
+.page_heading {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.page_heading h1 {
+    margin: 0 0 14px;
+    color: #0f172a;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.page_heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Search toolbar */
+
+.events_toolbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 36px;
+}
+
+.input_field {
+    width: min(620px, 100%);
+    height: 52px;
+    padding: 0 18px;
+    border: 1px solid #dbe2ea;
+    border-radius: 12px;
+    outline: none;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 0.95rem;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.input_field::placeholder {
+    color: #94a3b8;
+}
+
+.input_field:hover {
+    border-color: #cbd5e1;
+}
+
+.input_field:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* Events grid */
+
+.event_summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+/* Loading / error / empty states */
+
+.event_summary > h2 {
+    grid-column: 1 / -1;
+    margin: 30px auto;
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .event_summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 680px) {
+    .page_content {
+        width: min(92%, 520px);
+        padding: 40px 0 60px;
+    }
+
+    .page_heading {
+        margin-bottom: 30px;
+    }
+
+    .page_heading h1 {
+        font-size: 2rem;
+    }
+
+    .event_summary {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .events_toolbar {
+        margin-bottom: 28px;
+    }
+}

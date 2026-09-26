@@ -1,0 +1,143 @@
+/* =========================================================
+   Event Details
+   ========================================================= */
+
+.event_details {
+    width: min(820px, 100%);
+    margin: 0 auto;
+    padding: 42px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+/* Title */
+
+.event_details h1 {
+    margin: 0 0 20px;
+    color: #0f172a;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+/* Category + date */
+
+.event_meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.event_meta span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.event_meta span:first-child {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* Event image */
+
+.event_details img {
+    display: block;
+    width: 100%;
+    max-height: 430px;
+    margin: 28px 0;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* Description */
+
+.event_details > p {
+    margin: 0 0 18px;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Location + organizer */
+
+.event_details > p:nth-of-type(2),
+.event_details > p:nth-of-type(3) {
+    padding: 15px 18px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+
+/* Back link */
+
+.event_details a {
+    display: inline-flex;
+    margin-top: 18px;
+    color: #2563eb;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.event_details a:hover {
+    color: #1d4ed8;
+    transform: translateX(-3px);
+}
+
+.event_details a:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.2);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .event_details {
+        padding: 30px;
+        border-radius: 16px;
+    }
+
+    .event_details img {
+        max-height: 350px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .event_details {
+        padding: 22px;
+    }
+
+    .event_details h1 {
+        font-size: 1.8rem;
+    }
+
+    .event_details img {
+        max-height: 260px;
+        border-radius: 10px;
+    }
+
+    .event_details > p {
+        font-size: 0.94rem;
+    }
+}

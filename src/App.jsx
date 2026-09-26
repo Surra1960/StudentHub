@@ -10,6 +10,7 @@ import Resources from './pages/Resources';
 import Clubs from './pages/Clubs';
 
 import AnnouncementDetails from './pages/AnnouncementDetails';
+import EventDetails from './pages/EventDetails';
 import NotFound from './pages/NotFound';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -36,6 +37,10 @@ function App() {
             <Route
               path="/announcements/:id"
               element={<AnnouncementDetails />}
+            />
+             <Route
+              path="/events/:id"
+              element={<EventDetails />}
             />
             <Route path="*" element={<NotFound />} />
           </Routes>
