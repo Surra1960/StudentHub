@@ -59,6 +59,100 @@
     outline-offset: 2px;
 }
 
+.resource_categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.resource_categories button {
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.resource_categories button:hover {
+    background: #f5f5f5;
+    border-color: #bbb;
+}
+
+.resource_categories button:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.resource_categories button.active {
+    background: #eee;
+    border-color: #999;
+}
+
+.resource_category {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.resource_category h3 {
+    margin-bottom: 20px;
+}
+
+.resource_item {
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.resource_item h4 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+}
+
+.resource_item p {
+    margin: 0 0 16px;
+    line-height: 1.6;
+}
+
+.resource_item a {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid currentColor;
+}
+
+.resource_item a:hover {
+    opacity: 0.8;
+}
+
+.practice_placeholder {
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+}
+
+.practice_placeholder p {
+    margin: 0 0 10px;
+    line-height: 1.6;
+}
+
+.practice_placeholder p:last-child {
+    margin-bottom: 0;
+}
+
+.resource_empty {
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
 @media (max-width: 600px) {
     .page_content {
         padding: 30px 16px;
@@ -66,5 +160,9 @@
 
     .resource_selection {
         padding: 22px;
+    }
+
+    .resource_categories {
+        grid-template-columns: 1fr;
     }
 }
