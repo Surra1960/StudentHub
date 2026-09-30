@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import "../styles/AnnouncementDetails.css";
 import { useState,useEffect } from "react";
+import { API_URL } from "../api";
 
 function AnnouncementDetails() {
     const { id } = useParams();
@@ -10,7 +11,7 @@ function AnnouncementDetails() {
 
     useEffect(
         ()=>{
-            fetch(`http://localhost:4000/announcements/${id}`)
+            fetch(`${API_URL}/announcements/${id}`)
                 .then(response=>{
                     if(!response.ok){
                         throw new Error('Failed to Fetch the Announcement');

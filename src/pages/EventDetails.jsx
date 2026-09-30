@@ -2,6 +2,7 @@
 import { useParams, Link } from "react-router-dom";
 import "../styles/EventDetails.css";
 import { useEffect,useState } from "react";
+import { API_URL } from "../api";
 
 
 function EventDetails(){
@@ -12,7 +13,7 @@ function EventDetails(){
 
     useEffect(
         ()=>{
-            fetch(`http://localhost:4000/events/${id}`)
+            fetch(`${API_URL}/events/${id}`)
                 .then(response=>{
                     if(!response.ok){
                         throw new Error('Failed to Fetch the Event');

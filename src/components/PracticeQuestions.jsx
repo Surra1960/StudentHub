@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../api";
+import "../styles/PracticeQuestions.css";
 
 function PracticeQuestions({ chapterId }) {
     const [chapter, setChapter] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState({});
+    const [revealedAnswers, setRevealedAnswers] = useState({});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -15,9 +18,10 @@ function PracticeQuestions({ chapterId }) {
         setLoading(true);
         setError("");
         setAnswers({});
+        setRevealedAnswers({});
 
         fetch(
-            `http://localhost:4000/practice/chapters/${chapterId}/questions`
+            `${API_URL}/practice/chapters/${chapterId}/questions`
         )
             .then((response) => {
                 if (!response.ok) {
@@ -39,7 +43,11 @@ function PracticeQuestions({ chapterId }) {
             });
     }, [chapterId]);
 
-    const handleMatchingChange = (questionId, leftItemId, rightItemId) => {
+    const handleMatchingChange = (
+        questionId,
+        leftItemId,
+        rightItemId
+    ) => {
         setAnswers((previousAnswers) => ({
             ...previousAnswers,
             [questionId]: {
@@ -47,6 +55,38 @@ function PracticeQuestions({ chapterId }) {
                 [leftItemId]: rightItemId
             }
         }));
+    };
+
+    const handleRevealAnswer = async (questionId) => {
+        if (revealedAnswers[questionId]) {
+            setRevealedAnswers((previousAnswers) => {
+                const updatedAnswers = { ...previousAnswers };
+                delete updatedAnswers[questionId];
+
+                return updatedAnswers;
+            });
+
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                `${API_URL}/practice/questions/${questionId}/answer`
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch answer");
+            }
+
+            const data = await response.json();
+
+            setRevealedAnswers((previousAnswers) => ({
+                ...previousAnswers,
+                [questionId]: data
+            }));
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     if (loading) {
@@ -160,6 +200,61 @@ function PracticeQuestions({ chapterId }) {
                             ))}
                         </div>
                     )}
+
+                    <div className="practice_answer_area">
+                        <button
+                            type="button"
+                            className="practice_answer_button"
+                            onClick={() =>
+                                handleRevealAnswer(question.id)
+                            }
+                        >
+                            {revealedAnswers[question.id]
+                                ? "Hide Answer"
+                                : "View Answer"}
+                        </button>
+
+                        {revealedAnswers[question.id] && (
+                            <div className="practice_answer">
+                                {question.question_type ===
+                                    "multiple_choice" && (
+                                    <p>
+                                        <strong>Answer:</strong>{" "}
+                                        {
+                                            revealedAnswers[question.id]
+                                                .answer
+                                        }
+                                    </p>
+                                )}
+
+                                {question.question_type === "matching" && (
+                                    <div>
+                                        <strong>Answers:</strong>
+
+                                        <ul>
+                                            {revealedAnswers[
+                                                question.id
+                                            ].answer.map((pair, pairIndex) => (
+                                                <li key={pairIndex}>
+                                                    {pair.left} — {pair.right}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+
+                                {revealedAnswers[question.id]
+                                    .explanation && (
+                                    <p>
+                                        {
+                                            revealedAnswers[question.id]
+                                                .explanation
+                                        }
+                                    </p>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
             ))}
         </div>

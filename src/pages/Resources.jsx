@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../api";
 import PracticeQuestions from "../components/PracticeQuestions";
 import "../styles/Resources.css";
 
@@ -33,7 +34,7 @@ function Resources() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:4000/streams")
+        fetch(`${API_URL}/streams`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch streams");
@@ -66,7 +67,7 @@ function Resources() {
             return;
         }
 
-        fetch(`http://localhost:4000/programs?stream_id=${selectedStream}`)
+        fetch(`${API_URL}/programs?stream_id=${selectedStream}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch programs");
@@ -97,7 +98,7 @@ function Resources() {
             return;
         }
 
-        fetch(`http://localhost:4000/program-years?program_id=${selectedProgram}`)
+        fetch(`${API_URL}/program-years?program_id=${selectedProgram}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch program years");
@@ -127,7 +128,7 @@ function Resources() {
         }
 
         fetch(
-            `http://localhost:4000/semesters?program_year_id=${selectedProgramYear}`
+            `${API_URL}/semesters?program_year_id=${selectedProgramYear}`
         )
             .then((response) => {
                 if (!response.ok) {
@@ -154,7 +155,7 @@ function Resources() {
             return;
         }
 
-        fetch(`http://localhost:4000/courses?semester_id=${selectedSemester}`)
+        fetch(`${API_URL}/courses?semester_id=${selectedSemester}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch courses");
@@ -181,7 +182,7 @@ function Resources() {
 
         setResourcesLoading(true);
 
-        fetch(`http://localhost:4000/resources?course_id=${selectedCourse}`)
+        fetch(`${API_URL}/resources?course_id=${selectedCourse}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch resources");

@@ -58,6 +58,17 @@
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    text-decoration: none;
+    font-weight: 600;
+}
+.navbar_auth_link { color: #374151; text-decoration: none; font-weight: 600; }
+.navbar_auth_link:hover, .navbar_user:hover { color: #2563eb; }
+@media (max-width: 850px) {
+    .navbar { flex-wrap: wrap; gap: 14px; padding: 14px 18px; }
+    .navbar_title { font-size: 1.6rem; }
+    .navbar_links { order: 3; width: 100%; gap: 16px; overflow-x: auto; padding: 4px 0; }
+    .navbar_links a { white-space: nowrap; }
+    .navbar_actions { margin-left: auto; }
 }
 
 .Navlogin_button:hover {

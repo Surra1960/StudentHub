@@ -1,5 +1,6 @@
 import AnnouncementCard from "./AnnouncementCard";
 import { useState, useEffect, useRef, useMemo } from "react";
+import { API_URL } from "../api";
 import "../styles/AnnouncementSection.css";
 
 function AnnouncementsSection() {
@@ -10,7 +11,7 @@ function AnnouncementsSection() {
     const [showAcademicOnly, setShowAcademicOnly] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:4000/announcements")
+        fetch(`${API_URL}/announcements`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch announcements");

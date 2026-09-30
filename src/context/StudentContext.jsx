@@ -1,7 +1,3 @@
-import { createContext } from "react";
+import { AuthContext } from "./AuthContext";
 
-const StudentContext=createContext();
-
-
-
-export default StudentContext;
+export default AuthContext;

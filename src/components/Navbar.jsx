@@ -1,7 +1,10 @@
 import "../styles/Navbar.css";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useStudent } from "../context/useStudent";
 
 function Navbar() {
+    const { user, logout } = useStudent();
     return (
         <div className="navbar">
             <div className="navbar_logo">
@@ -47,7 +50,7 @@ function Navbar() {
             </nav>
 
             <div className="navbar_actions">
-                <button className="Navlogin_button">Login</button>
+                {user ? <><Link className="navbar_user" to="/profile">{user.fullName}</Link><button className="Navlogin_button" onClick={logout}>Log out</button></> : <><Link className="navbar_auth_link" to="/login">Login</Link><Link className="Navlogin_button" to="/register">Sign Up</Link></>}
             </div>
         </div>
     );

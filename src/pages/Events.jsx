@@ -2,6 +2,7 @@
 import EventCard from "../components/EventCard";
 import '../styles/Events.css';
 import { useState,useEffect, useMemo } from "react";
+import { API_URL } from "../api";
 
 
 
@@ -13,7 +14,7 @@ function Events() {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(()=>{
-        fetch("http://localhost:4000/events")
+        fetch(`${API_URL}/events`)
             .then((response)=>{
                 if(!response.ok){
                     throw new Error('Failed to fetch Events')
